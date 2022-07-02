@@ -56,12 +56,24 @@ const deleteProduct = async (req, res) => {
     res.status(200).send('product deleted....');
 }
 
-// 5. Published Products
+// 6. Published Products
 const getPublishedProduct = async (req, res) => {
     const products = await Product.findAll({
         where: { published: true }
     })
     res.status(200).send(products);
+}
+
+// 7. connect one to many relation product & reviews
+const getProductReviews = async (req, res) => {
+    const data = await Product.findAll({
+        include: [{
+            model: Review,
+            as: 'review',
+        }],
+        where: { id: 1 }
+    })
+    res.status(200).send(data);
 }
 
 module.exports = {
@@ -71,4 +83,5 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getPublishedProduct,
+    getProductReviews,
 }

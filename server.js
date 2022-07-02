@@ -14,8 +14,13 @@ app.use(express.urlencoded({ extended: true }))
 
 
 //routers
-const router = require('./routes/productRouter');
-app.use('/api/products', router);
+const product_router = require('./routes/productRouter');
+app.use('/api/products', product_router);
+
+const review_router = require('./routes/reviewRouter');
+app.use('/api/reviews', review_router);
+
+
 
 //resting api
 app.get('/', (req, res) => {

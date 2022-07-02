@@ -10,5 +10,9 @@ router.get('/:id', productController.getOneProduct);
 router.put('/:id', productController.updateProduct);
 router.delete('/:id', productController.deleteProduct);
 
+// relational - get one product many Review
+router.get('/review', productController.getProductReviews);
+
+
 module.exports = router;
 

@@ -35,9 +35,23 @@ db.sequelize = sequelize
 db.products = require('./productModel.js')(sequelize, DataTypes)
 db.reviews = require('./reviewModels.js')(sequelize, DataTypes)
 
-db.sequelize.sync({ force: false })
+db.sequelize.sync({ force: true })
     .then(() => {
         console.log('yes re-sync done');
     })
+
+// module relations:
+// 1. one to many
+db.products.hasMany(db.reviews, {
+    foreignKey: 'id',
+    as: 'review'
+})
+// +
+db.reviews.belongsTo(db.products, {
+    foreignKey: 'id',
+    as: 'product'
+})
+// ----------------------------------
+
 
 module.exports = db
