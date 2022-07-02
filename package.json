@@ -1,7 +1,7 @@
 {
   "name": "mysql_api",
   "version": "1.0.0",
-  "description": "node express crud api with sequlize",
+  "description": "node express crud api with sequelize",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
