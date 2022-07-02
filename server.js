@@ -9,9 +9,7 @@ var corOptions = {
 
 //middleware
 app.use(cors(corOptions))
-
 app.use(express.json())
-
 app.use(express.urlencoded({ extended: true }))
 
 //resting api
@@ -24,5 +22,5 @@ const PORT = process.env.PORT || 8080
 
 //server
 app.listen(PORT, () => {
-    console.log(`server is running post ${PORT}`)
+    console.log(`server is running on port http://localhost:${PORT}`)
 })

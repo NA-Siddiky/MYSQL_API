@@ -25,15 +25,19 @@ sequelize.authenticate()
     .catch(err => {
         console.log('Error' + err)
     })
+
+//DB connect and create
 const db = {}
+
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
 db.products = require('./productModel.js')(sequelize, DataTypes)
 db.reviews = require('./reviewModels.js')(sequelize, DataTypes)
+
 db.sequelize.sync({ force: false })
     .then(() => {
-        console.log('yes re sync done');
+        console.log('yes re-sync done');
     })
 
 module.exports = db

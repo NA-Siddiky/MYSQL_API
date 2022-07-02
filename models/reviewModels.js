@@ -1,5 +1,3 @@
-const { DataTypes } = require("sequelize/types");
-
 module.exports = (sequelize, DataTypes) => {
     const Review = sequelize.define("review", {
         rating: {
@@ -7,9 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         description: {
             type: DataTypes.TEXT
-        },
-        published: {
-            type: DataTypes.BOOLEAN
         }
     })
+    return Review;
 }
