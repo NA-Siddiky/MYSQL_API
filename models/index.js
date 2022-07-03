@@ -43,13 +43,17 @@ db.sequelize.sync({ force: true })
 // module relations:
 // 1. one to many
 db.products.hasMany(db.reviews, {
-    foreignKey: 'id',
-    as: 'review'
+    foreignKey: {
+        name: 'id'
+    },
+    as: 'review',
 })
 // +
 db.reviews.belongsTo(db.products, {
-    foreignKey: 'id',
-    as: 'product'
+    foreignKey: {
+        name: 'id'
+    },
+    as: 'product',
 })
 // ----------------------------------
 

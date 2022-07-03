@@ -71,7 +71,7 @@ const getProductReviews = async (req, res) => {
             model: Review,
             as: 'review',
         }],
-        where: { id: 1 }
+        where: { id: 20 }
     })
     res.status(200).send(data);
 }
